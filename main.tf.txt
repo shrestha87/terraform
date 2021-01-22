@@ -8,9 +8,15 @@ terraform {
 }
 provider "aws" {
   profile = "default"
-  region  = "us-west-2"
+  region  = "us-east-2"
 }
 resource "aws_instance" "example" {
-  ami           = "ami-830c94e3"
-  instance_type = "t2.micro"
+  ami           = "ami-0a0ad6b70e61be944 "
+  instance_type = var.instance_type
+  keyname = "dec2020"
+  subnet_id = "subnet-9f3a78d3"
+  security_group = "sg-0a4d477ae2173aa7e"
+}
+variable "instance_type" {
+  type        = string
 }
